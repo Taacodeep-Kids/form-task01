@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Exercise Registration Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+            border: 3px solid #ff6b6b;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-header h1 {
+            color: #ff6b6b;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .form-header p {
+            color: #666;
+            font-size: 1.2em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #ff6b6b;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+        }
+
+        select {
+            cursor: pointer;
+            background-color: white;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-family: inherit;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        .fun-icons {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <div class="fun-icons">🏃‍♂️ 🤸‍♀️ ⚽ 🏀 🎾</div>
+            <h1>Join Our Exercise Club!</h1>
+            <p>Let's get moving and have fun together!</p>
+        </div>
+
+        <form id="exerciseForm">
+            <div class="form-group">
+                <label for="firstName"><span class="emoji">👦</span>First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName"><span class="emoji">👧</span>Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email"><span class="emoji">📧</span>Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password"><span class="emoji">🔒</span>Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="favoriteActivity"><span class="emoji">🎯</span>Favorite Exercise Activity:</label>
+                <select id="favoriteActivity" name="favoriteActivity" required>
+                    <option value="">Choose your favorite!</option>
+                    <option value="running">🏃‍♂️ Running</option>
+                    <option value="jumping">🤸‍♀️ Jumping & Gymnastics</option>
+                    <option value="soccer">⚽ Soccer</option>
+                    <option value="basketball">🏀 Basketball</option>
+                    <option value="tennis">🎾 Tennis</option>
+                    <option value="swimming">🏊‍♀️ Swimming</option>
+                    <option value="dancing">💃 Dancing</option>
+                    <option value="cycling">🚴‍♂️ Cycling</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="goals"><span class="emoji">💪</span>Tell us about your exercise goals:</label>
+                <textarea id="goals" name="goals" placeholder="What do you want to achieve? Have fun, get stronger, learn new skills, make friends..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                🎉 Join the Fun! 🎉
+            </button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('exerciseForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                favoriteActivity: document.getElementById('favoriteActivity').value,
+                goals: document.getElementById('goals').value
+            };
+            
+            // Simple validation
+            if (!formData.firstName || !formData.lastName || !formData.email || !formData.password || !formData.favoriteActivity) {
+                alert('Please fill in all required fields! 😊');
+                return;
+            }
+            
+            // Show success message
+            alert('🎉 Welcome to our Exercise Club, ' + formData.firstName + '! 🎉\n\nGet ready to have fun and stay active!');
+            
+            // Log form data (in real app, this would be sent to server)
+            console.log('Form submitted:', formData);
+        });
+    </script>
+</body>
+</html>
